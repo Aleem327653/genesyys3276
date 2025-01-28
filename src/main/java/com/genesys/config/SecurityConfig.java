@@ -25,12 +25,17 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService(){
        UserDetails user1= User
-               .withUsername("Aleemm")
-               .password(passwordEncoder().encode("112233"))
+               .withUsername("Aleem")
+               .password(passwordEncoder().encode("1234"))
                .roles("USER")
                .build();
+        UserDetails user2= User
+                .withUsername("Paaji")
+                .password(passwordEncoder().encode("1122"))
+                .roles("ADMIN")
+                .build();
 
-       return new InMemoryUserDetailsManager(user1);
+       return new InMemoryUserDetailsManager(user1,user2);
     }
 
     @Bean
